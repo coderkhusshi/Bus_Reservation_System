@@ -1,0 +1,37 @@
+   
+   <div class="back">
+   
+   <h2 style="font-family:'Courier New', Courier, monospace; text-align: center;">Available Bus</h2>
+  
+   <div class="container" style="background-color: white;">
+   <table class="table table-bordered">
+      <tr *ngIf="buslistData.length > 0"> 
+        <tr>
+        <th>Bus id</th>
+        <th>Bus name</th>
+        <th>Driver Name</th>
+        <th>BusType</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Seats</th>
+        <th>Available Seats</th>
+        <th>Price</th>
+    </tr>
+
+    <tr *ngFor="let bus of buslistData" >
+         
+        <td>{{bus.busid}}</td> 
+        <td>{{bus.busname}}</td>
+        <td>{{bus.driverName}}</td>
+        <td>{{bus.busType}}</td>
+        <td>{{bus.arrivalTime}}</td>
+        <td>{{bus.departureTime}}</td>
+        <td>{{bus.seats}}</td>
+        <td>{{bus.avaiableSeats}}</td> 
+        <td>{{bus.price}}</td>
+        <td> <button (click)="reserveBus(bus.busid)">Reservation</button></td>
+    </tr> 
+</table> 
+</div>
+   
+</div>

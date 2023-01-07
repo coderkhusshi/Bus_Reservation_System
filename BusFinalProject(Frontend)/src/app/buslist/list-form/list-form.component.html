@@ -1,0 +1,125 @@
+
+    <div class="alert alert-primary container">
+        <h3>BusList Form</h3>
+    </div>
+    <form [formGroup]="buslistForm" (ngSubmit)="saveBusList()">
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['busid'].errors && 
+            (buslistForm.controls['busid'].touched || buslistForm.controls['busid'].dirty)">
+                Bus Id is required
+            </div>
+            <label for="busid">Bus id</label>
+                <input class="form-control" [readonly]="isUpdate" type="text" name="busid" id="busid" formControlName="busid">
+        </div>
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['busname'].errors && 
+                    (buslistForm.controls['busname'].touched || buslistForm.controls['busname'].dirty)">
+                Bus Name is required
+            </div>
+            <label for="busname">Bus Name</label>
+            <input class="form-control" type="text" name="busname" id="busname" formControlName="busname" >
+        </div>
+        
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['driverName'].errors && 
+                    (buslistForm.controls['driverName'].touched || buslistForm.controls['driverName'].dirty)">
+                Driver Name is required
+            </div>
+            <label for="driverName">Driver Name</label>
+            <input class="form-control" type="text" name="driverName" id="driverName" formControlName="driverName" >
+        </div>
+        
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['busType'].errors && 
+                    (buslistForm.controls['busType'].touched || buslistForm.controls['busType'].dirty)">
+                Bus Type is required
+            </div>
+            <label for="busType">Bus Type</label>
+            <input class="form-control" type="text" name="busType" id="busType" formControlName="busType" >
+        </div>
+        
+        
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['arrivalTime'].errors && 
+                    (buslistForm.controls['arrivalTime'].touched || buslistForm.controls['arrivalTime'].dirty)">
+                Arrival Time is required
+            </div>
+            <label for="arrivalTime">Arrival Time</label>
+            <input class="form-control" type="text" name="arrivalTime" id="arrivalTime" formControlName="arrivalTime" >
+        </div>
+
+
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['departureTime'].errors && 
+                    (buslistForm.controls['departureTime'].touched || buslistForm.controls['departureTime'].dirty)">
+                Departure Time is required
+            </div>
+            <label for="departureTime">Departure Time</label>
+            <input class="form-control" type="text" name="departureTime" id="departureTime" formControlName="departureTime" >
+        </div>
+
+
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['seats'].errors && 
+                    (buslistForm.controls['seats'].touched || buslistForm.controls['seats'].dirty)">
+                Seats is required
+            </div>
+            <label for="seats">Seats</label>
+            <input class="form-control" type="text" name="seats" id="seats" formControlName="seats" >
+        </div>
+
+        <div class="form-group container">
+            <div *ngIf="buslistForm.controls['avaiableSeats'].errors && 
+                    (buslistForm.controls['avaiableSeats'].touched || buslistForm.controls['avaiableSeats'].dirty)">
+                Avaiable Seats is required
+            </div>
+            <label for="busType">Avaiable Seats</label>
+            <input class="form-control" type="text" name="avaiableSeats" id="avaiableSeats" formControlName="avaiableSeats" >
+        </div>
+
+      
+
+        <!-- <div class="form-group container">
+            <div *ngIf="buslistForm.controls['price'].errors && 
+                    (buslistForm.controls['price'].touched || buslistForm.controls['price'].dirty)">
+                Price is required
+            </div>
+            <label for="busType">Price</label>
+            <input class="form-control" type="text" name="price" id="price" formControlName="price" >
+        </div> -->
+        
+        <div class="container">
+        <input type="submit" value="Save Bus" class="btn btn-primary"   style="width: 85px;">
+   </div>
+    </form>
+    <hr>
+    <table class="table table-bordered">
+        <tr *ngIf="buses.length > 0">
+            <th>Bus id</th>
+            <th>Bus name</th>
+            <th>Driver Name</th>
+            <th>BusType</th>
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
+            <th>Seats</th>
+            <th>AvaiableSeats</th>
+           
+            <!-- <th>Price</th> -->
+        </tr>
+        <tr *ngFor="let bus of buses">
+            <td>{{bus.busid}}</td>
+            <td>{{bus.busname}}</td>
+            <td>{{bus.driverName}}</td>
+            <td>{{bus.busType}}</td>
+            <td>{{bus.arrivalTime}}</td>
+            <td>{{bus.departureTime}}</td>
+            <td>{{bus.seats}}</td>
+            <td>{{bus.avaiableSeats}}</td>
+           
+            <!-- <td>{{bus.price}}</td> -->
+            <!-- <td><input type="button" (click)="deletebus(bus.busid)" value="Delete" class="btn btn-primary"></td> -->
+            <td><input type="button" (click)="Updatebus(bus.busid)"value="Update" class="btn btn-primary"></td>
+        </tr>
+        
+    </table>
+    

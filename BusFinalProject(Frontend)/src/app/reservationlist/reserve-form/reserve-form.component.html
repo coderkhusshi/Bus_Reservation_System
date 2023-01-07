@@ -1,0 +1,62 @@
+  
+    <div class="alert alert-primary container" >
+        <h3>Reservation List Form</h3>
+    </div>
+    <form [formGroup]="reservationlistForm" (ngSubmit)="ShowReservationList()">
+        <div class="form-group container">
+            <label for="reservationId">Reservation Id</label>
+            <input class="form-control" type="text" [disabled]="isUpdate" name="reservationId" id="reservationId" formControlName="reservationId">
+        </div>
+        <div class="form-group container">
+            <label for="reservationStatus">Reservation status</label>
+            <input class="form-control" type="text" name="reservationStatus" id="reservationStatus" formControlName="reservationStatus">
+        </div>
+       
+        <div class="form-group container">
+            <label for="reservationType">ReservationType</label>
+            <input class="form-control" type="text" name="reservationType" id="reservationType" formControlName="reservationType">
+        </div>
+        <div class="form-group container">
+            <label for="reservationDate">Reservation Date</label>
+            <input class="form-control" type="text" name="reservationDate" id="reservationDate" formControlName="reservationDate">
+        </div>
+        <div class="form-group container">
+            <label for="reservationTime">Reservation Time</label>
+            <input class="form-control" type="text" name="reservationTime" id="reservationTime" formControlName="reservationTime">
+        </div>
+        <div class="form-group container">
+            <label for="source">Source</label>
+            <input class="form-control" type="text" name="source" id="source" formControlName="source">
+        </div>
+        <div class="form-group container">
+            <label for="destination">Destination</label>
+            <input class="form-control" type="text" name="destination" id="destination" formControlName="destination">
+        </div>
+        <div class="container">
+        <input type="submit" value="Add Reservation" class="btn btn-primary" style="width: 160px;">
+      </div>
+    </form>
+    <hr>
+    <table class="table table-bordered">
+        <tr *ngIf="reservations.length > 0">
+            <th>Reservation Id</th>
+            <th>Reservation status</th>
+            <th>Reservation Type</th>
+            <th>Reservation Date</th>
+            <th>Reservation Time</th>
+            <th>Source</th>
+            <th>Destination</th>
+            
+        </tr>
+        <tr *ngFor="let reservation of reservations">
+            <td>{{reservation.reservationId}}</td>
+            <td>{{reservation.reservationStatus}}</td>
+            <td>{{reservation.reservationType}}</td>
+            <td>{{reservation.reservationDate}}</td>
+            <td>{{reservation.reservationTime}}</td>
+            <td>{{reservation.source}}</td>
+            <td>{{reservation.destination}}</td>
+        </tr>
+    </table>
+    
+

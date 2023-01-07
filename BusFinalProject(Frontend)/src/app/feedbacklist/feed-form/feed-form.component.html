@@ -1,0 +1,72 @@
+
+
+ <div class="alert alert-primary container">
+    <h3>Feedback List Form</h3>
+</div>
+<form [formGroup]="feedbacklistForm" (ngSubmit)="saveFeedbackList()">
+    <div class="form-group container">
+        <label for="feedBackId">feedBack id</label>
+        <input class="form-control" type="text" [disabled]="isUpdate" name="feedBackId" id="feedBackId"
+            formControlName="feedBackId">
+    </div>
+    <div class="form-group container">
+        <label for="driverRating">Driver Rating</label>
+        <input class="form-control" type="text" name="driverRating" id="driverRating" formControlName="driverRating">
+    </div>
+    <div class="form-group container">
+        <label for="driverName">Driver Name</label>
+        <input class="form-control" type="text" name="driverName" id="driverName" formControlName="driverName">
+    </div>
+    <div class="form-group container">
+        <label for="serviceRating">serviceRating</label>
+        <input class="form-control" type="text" name="serviceRating" id="serviceRating" formControlName="serviceRating">
+    </div>
+    <div class="form-group container">
+        <label for="overallRating">overallRating</label>
+        <input class="form-control" type="text" name="overallRating" id="overallRating" formControlName="overallRating">
+    </div>
+    <div class="form-group container">
+        <label for="comments">Comments</label>
+        <input class="form-control" type="text" name="comments" id="comments" formControlName="comments">
+    </div>
+    <div class="form-group container">
+        <label for="feedbackdate">feedbackdate</label>
+        <input class="form-control" type="date" name="feedbackdate" id="feedbackdate" formControlName="feedbackdate">
+    </div>
+    <div class="container">
+    <input type="submit" value="Add Feedback" class="btn btn-primary" style="width: 85px;">
+    </div>
+</form>
+<hr>
+<table class="table table-bordered">
+    <tr *ngIf="feedbackes.length > 0">
+        <th>feedback id</th>
+        <th>driver rating</th>
+        <th>service rating </th>
+        <th>overall Rating</th>
+        <th>comments</th>
+        <th>feedback date</th>
+    </tr>
+    <tr *ngFor="let feed of feedbackes">
+        <td>{{feed.feedBackId}}</td>
+        <td>{{feed.driverRating}}</td>
+        <td>{{feed.serviceRating}}</td>
+        <td>{{feed.overallRating}}</td>
+        <td>{{feed.comments}}</td>
+        <td>{{feed.feedbackdate}}</td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

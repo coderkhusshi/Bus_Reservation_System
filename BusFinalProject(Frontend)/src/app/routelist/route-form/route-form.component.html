@@ -1,0 +1,42 @@
+<div class="alert alert-primary container">
+    <h3>Route List Form</h3>
+</div>
+<form [formGroup]="routelistForm" (ngSubmit)="ShowRouteList()">
+    <div class="form-group container">
+        <label for="routeId">Route Id</label>
+        <input class="form-control" type="text" [disabled]="isUpdate" name="routeId" id="routeId" formControlName="routeId">
+    </div>
+    <div class="form-group container">
+        <label for="routeFrom">Route Form</label>
+        <input class="form-control" type="text" name="routeFrom" id="routeFrom" formControlName="routeFrom">
+    </div>
+    <div class="form-group container">
+        <label for="routeTo">Route To</label>
+        <input class="form-control" type="text" name="routeTo" id="routeTo" formControlName="routeTo">
+    </div>
+    <div class="form-group container">
+        <label for="distance">Distance</label>
+        <input class="form-control" type="text" name="distance" id="distance" formControlName="distance">
+    </div>
+    
+    <input type="submit" value="Add Route" class="btn btn-primary" style="width: 85px;">
+</form>
+<hr>
+<table class="table table-bordered">
+    <tr *ngIf="routes.length > 0">
+        <th>Route id</th>
+        <th>Route From</th>
+        <th>Route To</th>
+        <th>Distance</th>
+       
+    </tr>
+    <tr *ngFor="let route of routes">
+        <td>{{route.routeId}}</td>
+        <td>{{route.routeFrom}}</td>
+        <td>{{route.routeTo}}</td>
+        <td>{{route.distance}}</td>
+      
+    </tr>
+</table>
+
+

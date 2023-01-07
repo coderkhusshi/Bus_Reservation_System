@@ -1,0 +1,57 @@
+input {
+    width: 30%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-left: 17px;
+    
+  }
+  
+  
+  .button[type=submit] {
+   color: aliceblue;
+    
+  }
+  /* background image */
+  .container {
+    background-image: url('../../assets/images/admin2.png');
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+  }
+  
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+  }
+  
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+  }
+
+  .h2{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+  }
+
+  .h2 h4{
+    font-size:medium;
+  }
+
+  

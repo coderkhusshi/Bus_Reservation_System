@@ -1,0 +1,102 @@
+<div class="alert alert-primary container">
+    <h3>ReservationList Form</h3>
+</div>
+<form [formGroup]="reservationlistForm" (ngSubmit)="saveReservationList()">
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['reservationId'].errors && 
+        (reservationlistForm.controls['reservationId'].touched || reservationlistForm.controls['reservationId'].dirty)">
+        Reservation Id is required
+        </div>
+        <label for="reservationId">Reservation id</label>
+            <input class="form-control" [readonly]="isUpdate" type="text" name="reservationId" id="reservationId" formControlName="reservationId">
+    </div>
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['reservationStatus'].errors && 
+                (reservationlistForm.controls['reservationStatus'].touched || reservationlistForm.controls['reservationStatus'].dirty)">
+                reservation status is required
+        </div>
+        <label for="reservationStatus">Reservation Status</label>
+        <input class="form-control" type="text" name="reservationStatus" id="reservationStatus" formControlName="reservationStatus" >
+    </div>
+    
+   
+    
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['reservationType'].errors && 
+                (reservationlistForm.controls['reservationType'].touched || reservationlistForm.controls['reservationType'].dirty)">
+            Bus Type is required
+        </div>
+        <label for="reservationType">reservation Type</label>
+        <input class="form-control" type="text" name="reservationType" id="reservationType" formControlName="reservationType" >
+    </div>
+    
+    
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['reservationDate'].errors && 
+                (reservationlistForm.controls['reservationDate'].touched || reservationlistForm.controls['reservationDate'].dirty)">
+                reservationDate is required
+        </div>
+        <label for="reservationDate">Reservation Date</label>
+        <input class="form-control" type="text" name="reservationDate" id="reservationDate" formControlName="reservationDate" >
+    </div>
+
+
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['reservationTime'].errors && 
+                (reservationlistForm.controls['reservationTime'].touched || reservationlistForm.controls['reservationTime'].dirty)">
+                reservationTime is required
+        </div>
+        <label for="reservationTime">ReservationTime</label>
+        <input class="form-control" type="text" name="reservationTime" id="reservationTime" formControlName="reservationTime" >
+    </div>
+
+
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['source'].errors && 
+                (reservationlistForm.controls['source'].touched || reservationlistForm.controls['source'].dirty)">
+            Source is required
+        </div>
+        <label for="source">Source</label>
+        <input class="form-control" type="text" name="source" id="source" formControlName="source" >
+    </div>
+
+
+
+    <div class="form-group container">
+        <div *ngIf="reservationlistForm.controls['destination'].errors && 
+                (reservationlistForm.controls['destination'].touched || reservationlistForm.controls['destination'].dirty)">
+                destination is required
+        </div>
+        <label for="reservationType">Destination</label>
+        <input class="form-control" type="text" name="destination" id="destination" formControlName="destination" >
+    </div>
+    
+
+    <input type="submit" value="Save Reservation" class="btn btn-primary" [disabled]="reservationlistForm.invalid">
+</form>
+<hr>
+<table class="table table-bordered">
+    <tr *ngIf="reservations.length > 0">
+        <th>Reservation Id</th>
+        <th>Reservation Status</th>
+        <th>Reservation Type</th>
+        <th>Reservation Date</th>
+        <th>Reservation Time</th>
+        <th>source</th>
+        <th>destination</th>
+    </tr>
+    <tr *ngFor="let reservation of reservations">
+        <td>{{reservation.reservationId}}</td>
+        <td>{{reservation.reservationStatus}}</td>
+        <td>{{reservation.reservationType}}</td>
+        <td>{{reservation.reservationDate}}</td>
+        <td>{{reservation.reservationTime}}</td>
+        <td>{{reservation.source}}</td>
+        <td>{{reservation.destination}}</td>
+        <td><input type="button" (click)="deletereservation(reservation.reservationId)" value="Delete" class="btn btn-primary"></td>
+        <td><input type="button" (click)="Updatereservation(reservation.reservationId)"value="Update" class="btn btn-primary"></td>
+    </tr>
+    
+</table>
+
+

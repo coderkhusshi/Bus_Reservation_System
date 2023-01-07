@@ -1,0 +1,54 @@
+<div class="container">
+<div class="body">
+
+<div class="h2">AdminLogin Page
+<br><br>
+<h4>Welcome to Admin Login page!! 
+<br> Only Admin can login here .</h4>
+</div>
+    <form [formGroup]="adminForm" (ngSubmit)="takedata" >
+      
+        <label for="username">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Username</label><br>
+        <input type="text" id="username" name="username"  pattern="(team5)" 
+       formControlName = "username" required>
+       <div *ngIf="adminForm.controls['username'].invalid && adminForm.controls['username'].touched" class="alert alert-danger">
+        <div *ngIf="adminForm.controls['username'].errors">
+       username is not valid.
+        </div>
+        </div>
+      
+       <br/>
+       <br/>
+       <label for="psw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password</label><br>
+       <input type="password" id="psw" name="psw" pattern="(busreservation)"
+          formControlName = "psw" required>
+          <div *ngIf="adminForm.controls['psw'].invalid && adminForm.controls['psw'].touched" class="alert alert-danger">
+            <div *ngIf="adminForm.controls['psw'].errors">
+           Password is not valid.
+            </div>
+            </div>
+          <br>
+          <br>
+          <script>
+            myInput.onkeyup = function() {busreservation
+           var lowerCaseLetters = (busreservation);
+           if(myInput.value.match(lowerCaseLetters)) {  
+             letter.classList.remove("invalid");
+             letter.classList.add("valid");
+           } else {
+             letter.classList.remove("valid");
+             letter.classList.add("invalid");
+           }
+           
+           }
+         </script>
+       
+       <button [disabled]="adminForm.invalid" (click)="onButtonClick()" class="button is-link is-fullwidth" routerLink="/home" style="width: 85px; background-color: black ;color: aliceblue;">
+      Log in</button>
+   
+    </form>
+ </div>
+ 
+</div>
+  

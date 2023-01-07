@@ -1,0 +1,145 @@
+<!-- <html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <!-- <title>Star rating using pure CSS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  
+</head>
+<body>
+  <br>
+  
+    <div class="h3">Give your Feedback Here !</div>
+  <br>
+  <div class="rate">
+    <div class="para"><h4>Driver Rating</h4></div>
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+  </div>
+  <br>
+  <div class="rate">
+    <div class="para"><h4>Service Rating</h4></div>
+    <input type="radio" id="star-5" name="rati" value="5" />
+    <label for="star-5" title="text">5 stars</label>
+    <input type="radio" id="star-4" name="rati" value="4" />
+    <label for="star-4" title="text">4 stars</label>
+    <input type="radio" id="star-3" name="rati" value="3" />
+    <label for="star-3" title="text">3 stars</label>
+    <input type="radio" id="star-2" name="rati" value="2" />
+    <label for="star-2" title="text">2 stars</label>
+    <input type="radio" id="star-1" name="rati" value="1" />
+    <label for="star-1" title="text">1 star</label>
+  </div>
+  <br>
+  <div class="rate">
+    <div class="para"><h4>OverAll Rating</h4></div>
+    <input type="radio" id="star--5" name="rating" value="5" />
+    <label for="star--5" title="text">5 stars</label>
+    <input type="radio" id="star--4" name="rating" value="4" />
+    <label for="star--4" title="text">4 stars</label>
+    <input type="radio" id="star--3" name="rating" value="3" />
+    <label for="star--3" title="text">3 stars</label>
+    <input type="radio" id="star--2" name="rating" value="2" />
+    <label for="star--2" title="text">2 stars</label>
+    <input type="radio" id="star--1" name="rating" value="1" />
+    <label for="star--1" title="text">1 star</label>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <div class="post">
+      <div class="text">Thanks for rating us!</div>
+      <div class="edit">EDIT</div>
+    </div>
+    <div class="star-widget">
+      <input type="radio" name="ratee" id="rate-5">
+      <label for="rate-5" class="fas fa-star"></label>
+      <input type="radio" name="ratee" id="rate-4">
+      <label for="rate-4" class="fas fa-star"></label>
+      <input type="radio" name="ratee" id="rate-3">
+      <label for="rate-3" class="fas fa-star"></label>
+      <input type="radio" name="ratee" id="rate-2">
+      <label for="rate-2" class="fas fa-star"></label>
+      <input type="radio" name="ratee" id="rate-1">
+      <label for="rate-1" class="fas fa-star"></label>
+      <form action="#">
+        <header></header>
+        <div class="textarea">
+          <textarea cols="30" placeholder="Describe your experience.."></textarea>
+        </div>
+        <div class="btn">
+          <button type="submit">Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const btn = document.querySelector("button");
+    const post = document.querySelector(".post");
+    const widget = document.querySelector(".star-widget");
+    const editBtn = document.querySelector(".edit");
+    btn.onclick = ()=>{
+      widget.style.display = "none";
+      post.style.display = "block";
+      editBtn.onclick = ()=>{
+        widget.style.display = "block";
+        post.style.display = "none";
+      }
+      return false;
+    } -->
+  <!-- </script>
+</body> -->
+<!-- </html> --> 
+<body >
+  <div class="body" >
+    <br>
+    <br>
+      <div class="h3"><h1><u>Give your Feedback Here !</u></h1></div>
+      <br>
+<br>
+<form [formGroup]="feedbacklistForm" (ngSubmit)="saveFeedbackList()">
+<!-- <div class="form-group container" >
+    <label for="feedBackId" class="h3"></label>
+    <input class="form-control" type="text" [disabled]="isUpdate" name="feedBackId" id="feedBackId"
+        formControlName="feedBackId">
+</div> -->
+<div  class="form-group container" >
+    <label for="driverRating"  class="h3">Driver Rating</label>
+    <input class="form-control" type="number" name="driverRating" id="driverRating"  min="1" max="5" formControlName="driverRating">
+</div>
+<!-- <div class="form-group container" >
+    <label for="driverName">Driver Name</label>
+    <input class="form-control" type="number" name="driverName" id="driverName" min="1" max="5" formControlName="driverName">
+</div>
+ -->
+ <div class="form-group container" >
+    <label for="serviceRating" class="h3">ServiceRating</label>
+    <input class="form-control" type="number" name="serviceRating" id="serviceRating" min="1" max="5" formControlName="serviceRating">
+</div>
+<div class="form-group container">
+    <label for="overallRating" class="h3">OverallRating</label>
+    <input class="form-control" type="number" name="overallRating" id="overallRating"  min="1" max="5" formControlName="overallRating">
+</div>
+  <div class="form-group container">
+    <label for="comments" class="h3">Comments</label>
+    <input class="form-control" type="text" name="comments" id="comments" formControlName="comments">
+</div>
+<div class="form-group container">
+    <label for="feedbackdate" class="h3">Feedbackdate</label>
+    <input class="form-control" type="date" name="feedbackdate" id="feedbackdate" formControlName="feedbackdate">
+</div>
+<div class="container">
+<input class="h4" type="submit" value="Add Feedback" class="btn btn-primary" style="width: 120px;  color:azure; background-color:black; border-color: black;">
+</div>
+</form>
+<hr>
+</div>
+</body>

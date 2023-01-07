@@ -1,0 +1,61 @@
+
+    <div class="alert alert-primary container">
+        <h3>PaymentList Form</h3>
+    </div>
+    <form [formGroup]="paymentlistForm" (ngSubmit)="savePaymentList()">
+        <div class="form-group container">
+            <div *ngIf="paymentlistForm.controls['paymentid'].errors && 
+            (paymentlistForm.controls['paymentid'].touched || paymentlistForm.controls['paymentid'].dirty)">
+                Payment Id is required
+            </div>
+            <label for="paymentid">Payment id</label>
+                <input class="form-control" [readonly]="isUpdate" type="text" name="paymentid" id="paymentid" formControlName="paymentid">
+        </div>
+        <div class="form-group container">
+            <div *ngIf="paymentlistForm.controls['amount'].errors && 
+                    (paymentlistForm.controls['amount'].touched || paymentlistForm.controls['amount'].dirty)">
+                Amount is required
+            </div>
+            <label for="amount">Amount</label>
+            <input class="form-control" type="text" name="amount" id="amount" formControlName="amount" >
+        </div>
+        
+        <div class="form-group container">
+            <div *ngIf="paymentlistForm.controls['status'].errors && 
+                    (paymentlistForm.controls['status'].touched || paymentlistForm.controls['status'].dirty)">
+                Status is required
+            </div>
+            <label for="status">Status</label>
+            <input class="form-control" type="text" name="status" id="status" formControlName="status" >
+        </div>
+        
+        <div class="form-group container">
+            <div *ngIf="paymentlistForm.controls['paymentdate'].errors && 
+                    (paymentlistForm.controls['paymentdate'].touched || paymentlistForm.controls['paymentdate'].dirty)">
+                Paymentdate is required
+            </div>
+            <label for="paymentdate">Payment Date</label>
+            <input class="form-control" type="date" name="paymentdate" id="paymentdate" formControlName="paymentdate" >
+        </div>
+
+        <input type="submit" value="Save Payment" class="btn btn-primary" [disabled]="paymentlistForm.invalid">
+    </form>
+    <hr>
+    <table class="table table-bordered">
+        <tr *ngIf="paymentes.length > 0">
+            <th>Payment id</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>paymentdate</th>
+        </tr>
+        <tr *ngFor="let payment of paymentes">
+            <td>{{payment.paymentid}}</td>
+            <td>{{payment.amount}}</td>
+            <td>{{payment.status}}</td>
+            <td>{{payment.paymentdate}}</td>
+            <td><input type="button" (click)="deletepayment(payment.paymentid)" value="Delete" class="btn btn-primary"></td>
+            <td><input type="button" (click)="Updatepayment(payment.paymentid)"value="Update" class="btn btn-primary"></td>
+        </tr>
+        
+    </table>
+    

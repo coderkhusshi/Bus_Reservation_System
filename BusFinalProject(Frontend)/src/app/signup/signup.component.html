@@ -1,0 +1,70 @@
+
+    <body  style="background-image:url('../../assets/images/signup.png');"      >
+    <form [formGroup]="userlistForm" (ngSubmit)="saveUserList()">
+      <div class="nameshift">
+      <div class="form-group container  Design">
+          <div *ngIf="userlistForm.controls['userId'].errors &&
+            (userlistForm.controls['userId'].touched || userlistForm.controls['userId'].dirty)">
+              user Id is required
+          </div>
+          <label for="userId">User Id</label>
+          <input class="form-control" [readonly]="isUpdate" type="text" name="userId" id="userId" formControlName="userId">
+      </div>
+      <div class="form-group container  Design">
+          <div *ngIf="userlistForm.controls['userName'].errors &&
+                    (userlistForm.controls['userName'].touched || userlistForm.controls['userName'].dirty)">
+              userName is required
+          </div >
+          <label for="userName">UserName</label>
+          <input class="form-control" type="text" name="userName" id="userName" formControlName="userName">
+      </div>
+  
+      <div class="form-group container Design">
+          <div *ngIf="userlistForm.controls['password'].errors &&
+                    (userlistForm.controls['password'].touched || userlistForm.controls['password'].dirty)">
+              Password is required
+          </div>
+          <label for="password">Password</label>
+          <input class="form-control" type="text" name="password" id="password" formControlName="password">
+      </div>
+  
+      <div class="form-group container Design ">
+          <div *ngIf="userlistForm.controls['firstName'].errors &&
+                    (userlistForm.controls['firstName'].touched || userlistForm.controls['firstName'].dirty)">
+             First Name is required
+          </div>
+          <label for="firstName">First Name</label>
+          <input class="form-control" type="text" name="firstName" id="firstName" formControlName="firstName">
+      </div>
+  
+  
+      <div class="form-group container Design">
+          <div *ngIf="userlistForm.controls['lastName'].errors &&
+                    (userlistForm.controls['lastName'].touched || userlistForm.controls['lastName'].dirty)">
+              Last Name is required
+          </div>
+          <label for="lastName">Last Name</label>
+          <input class="form-control" type="text" name="lastName" id="lastName" formControlName="lastName">
+      </div>
+  
+  
+      <div class="form-group container Design">
+          <div *ngIf="userlistForm.controls['contact'].errors &&
+                    (userlistForm.controls['contact'].touched || userlistForm.controls['contact'].dirty)">
+              Contact is required
+          </div>
+          <label for="contact">Contact</label>
+          <input class="form-control" type="text" name="contact" id="contact" formControlName="contact">
+      </div>
+      <div class="form-group container Design">
+          <div *ngIf="userlistForm.controls['email'].errors &&
+                    (userlistForm.controls['email'].touched || userlistForm.controls['email'].dirty)">
+              email is required
+          </div>
+          <label for="email">Email</label>
+          <input class="form-control" type="text" name="email" id="email" formControlName="email">
+      </div>
+      <input type="submit" value="Register user" class="btn btn-primary" [disabled]="userlistForm.invalid" routerLink="/userpage" style="background-color:black ; color:aliceblue">
+    </div>
+    </form>
+    </body> 

@@ -1,0 +1,61 @@
+
+<div class="alert alert-primary container">
+    <h3>User Form</h3>
+</div>
+<form>
+    <div class="form-group container">
+        <label for="userId">User id</label>
+        <input class="form-control" type="number" [disabled]="isUpdate" name="userId" id="userId" formControlName="userId">
+    </div>
+    <div class="form-group container">
+        <label for="userName">UserName</label>
+        <input class="form-control" type="text" name="userName" id="userName" formControlName="userName">
+    </div>
+    <div class="form-group container">
+        <label for="password">Password</label>
+        <input class="form-control" type="text" name="password" id="password" formControlName="password">
+    </div>
+    <div class="form-group container">
+        <label for="firstName">First Name</label>
+        <input class="form-control" type="text" name="First Name" id="firstName" formControlName="firstName">
+    </div>
+    <div class="form-group container">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" type="text" name="lastName" id="lastName" formControlName="lastName">
+    </div>
+    <div class="form-group container">
+        <label for="Contact">Contact</label>
+        <input class="form-control" type="number" name="contact" id="contact" formControlName="contact">
+    </div>
+    <div class="form-group container">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email" formControlName="email">
+       </div>
+
+       <div class="container">
+        <input type="submit" value="Add User" class="btn btn-primary" style="width: 85px; ">
+        </div>  
+
+        <hr>
+        <table class="table table-bordered">
+            <tr *ngIf="users.length > 0">
+                <th>user id</th>
+                <th> username</th>
+                <th>password</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>contact</th>
+                <th>email</th>
+                
+            </tr>
+            <tr *ngFor="let user of users">
+                <td>{{user.userId}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.contact}}</td>
+                <td>{{user.email}}</td>
+                
+            </tr>
+        </table> 

@@ -1,0 +1,111 @@
+<div class="back">
+
+<h2 style="text-align:center">Bus Details</h2>
+<br>
+<br>
+
+<table class="table table-bordered" style="background-color: white;">
+    <tr>
+    <tr>
+        <th>Bus id</th>
+        <th>Bus name</th>
+        <th>Driver Name</th>
+        <th>BusType</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Seats</th>
+        <th>AvaiableSeats</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>{{buslistData.busid}}</td>
+        <td>{{buslistData.busname}}</td>
+        <td>{{buslistData.driverName}}</td>
+        <td>{{buslistData.busType}}</td>
+        <td>{{buslistData.arrivalTime}}</td>
+        <td>{{buslistData.departureTime}}</td>
+        <td>{{buslistData.seats}}</td>
+        <td>{{buslistData.avaiableSeats}}</td>
+        <td>{{buslistData.price}}</td>
+
+    </tr>
+</table>
+<br>
+<br>
+<div>
+    <div class="container p-0">
+        <div class="card px-4">
+            <p class="h8 py-3">Reservation Details</p>
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <form action="/action_page.php">
+                            <label for="quantity">&nbsp;&nbsp;Book Seats</label>&nbsp;&nbsp;
+                            <input class="text mb-1" type="number" [(ngModel)]="bookseats" id="quantity" name="quantity"
+                                min="1" max="5" (ngModelChange)="onSeatChange($event)" />
+                            <br><br>
+                            <p>&nbsp;&nbsp;Total Price :&nbsp;&nbsp;<span
+                                    style="border: 1px solid black;">&nbsp;&nbsp;{{this.bookseatsPrice}}&nbsp;&nbsp;</span>
+                            </p><br>
+                            <label> &nbsp;&nbsp;Reservation Type</label>&nbsp;&nbsp;
+                            <select name="Reservation Type" id="Reservation Type">
+                                <option value="volvo">AC</option>
+                                <option value="saab">Non-AC</option>
+                            </select>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <div class="time">
+                                <p>Arriving Time :&nbsp;&nbsp;{{buslistData.arrivalTime}}</p><br>
+                                <p>Departure Time :&nbsp;&nbsp;{{buslistData.departureTime}}</p><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">Person Name</p>
+                            <input class="form-control mb-3" type="text" placeholder="Enter Name">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">Expiry</p>
+                            <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">CVV/CVC</p>
+                            <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div >
+                            <button class="btn btn-primary mb-3" (click)="reserveSeat()" routerLink="/thankyoupage">Reserve Seat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+    </script>
+    </div>

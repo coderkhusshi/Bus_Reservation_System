@@ -1,0 +1,41 @@
+<div class="alert alert-primary container">
+    <h3>Payment List Form</h3>
+</div>
+<form [formGroup]="paymentlistForm" (ngSubmit)="ShowPaymentList()">
+    <div class="form-group container">
+        <label for="paymentid">Payment id</label>
+        <input class="form-control" type="text" [disabled]="isUpdate" name="paymentid" id="paymentid" formControlName="paymentid">
+    </div>
+    <div class="form-group container">
+        <label for="amount">Amount</label>
+        <input class="form-control" type="text" name="amount" id="amount" formControlName="amount">
+    </div>
+    <div class="form-group container">
+        <label for="status">Status</label>
+        <input class="form-control" type="text" name="status" id="status" formControlName="status">
+    </div>
+    <div class="form-group container">
+        <label for="paymentdate">payment date</label>
+        <input class="form-control" type="text" name="paymentdate" id="paymentdate" formControlName="paymentdate">
+    </div>
+    <div class="container">
+    <input type="submit" value="Add Payment" class="btn btn-primary" style="width: 85px;">
+    </div>
+</form>
+<hr>
+<table class="table table-bordered">
+    <tr *ngIf="paymentes.length > 0">
+        <th>Payment id</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Payment date</th>
+    </tr>
+    <tr *ngFor="let pay of paymentes">
+        <td>{{pay.paymentid}}</td>
+        <td>{{pay.amount}}</td>
+        <td>{{pay.status}}</td>
+        <td>{{pay.paymentdate}}</td>
+    </tr>
+</table>
+
+

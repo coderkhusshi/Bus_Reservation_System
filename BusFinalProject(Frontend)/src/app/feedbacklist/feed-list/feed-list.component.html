@@ -1,0 +1,82 @@
+<div class="alert alert-primary container">
+    <h3>Feedback List Form</h3>
+</div>
+<form [formGroup]="feedbacklistForm" (ngSubmit)="saveFeedbackList()">
+    <div class="form-group container">
+        <div *ngIf="feedbacklistForm.controls['feedBackId'].errors &&
+        (feedbacklistForm.controls['feedBackId'].touched || feedbacklistForm.controls['feedBackId'].dirty)">
+            feedback Id is required
+        </div>
+        <label for="feedBackId">feedback id</label>
+            <input class="form-control" [readonly]="isUpdate" type="text" name="feedBackId" id="feedBackId" formControlName="feedBackId">
+    </div>
+    <div class="form-group container">
+        <div *ngIf="feedbacklistForm.controls['driverRating'].errors &&
+                (feedbacklistForm.controls['driverRating'].touched || feedbacklistForm.controls['driverRating'].dirty)">
+            driverRating is required
+        </div>
+        <label for="driverRating">driver Rating</label>
+        <input class="form-control" type="text" name="driverRating" id="driverRating" formControlName="driverRating" >
+    </div>
+   
+    <div class="form-group container">
+        <div *ngIf="feedbacklistForm.controls['serviceRating'].errors &&
+                (feedbacklistForm.controls['serviceRating'].touched || feedbacklistForm.controls['serviceRating'].dirty)">
+            service Rating is required
+        </div>
+        <label for="serviceRating">service Rating</label>
+        <input class="form-control" type="text" name="serviceRating" id="serviceRating" formControlName="serviceRating" >
+    </div>
+   
+    <div class="form-group container">
+        <div *ngIf="feedbacklistForm.controls['overallRating'].errors &&
+                (feedbacklistForm.controls['overallRating'].touched || feedbacklistForm.controls['overallRating'].dirty)">
+            overallRating is required
+        </div>
+        <label for="overallRating">overallRating</label>
+        <input class="form-control" type="text" name="overallRating" id="overallRating" formControlName="overallRating" >
+    </div>
+   
+   
+    <div class="form-group container">
+        <div *ngIf="feedbacklistForm.controls['comments'].errors &&
+                (feedbacklistForm.controls['comments'].touched || feedbacklistForm.controls['comments'].dirty)">
+           Comments is required
+        </div>
+        <label for="comments">comments</label>
+        <input class="form-control" type="text" name="comments" id="comments" formControlName="comments" >
+    </div>
+    <div class="form-group container">
+        <div *ngIf="feedbacklistForm.controls['feedbackdate'].errors &&
+                (feedbacklistForm.controls['feedbackdate'].touched || feedbacklistForm.controls['feedbackdate'].dirty)">
+            feedbackdate is required
+        </div>
+        <label for="feedbackdate">feedbackdate</label>
+        <input class="form-control" type="date" name="feedbackdate" id="feedbackdate" formControlName="feedbackdate" >
+    </div>
+    <div class="container">
+    <input type="submit" value="Save Bus" class="btn btn-primary" [disabled]="feedbacklistForm.invalid" style="width: 85px;">
+</div>
+</form>
+<hr>
+<table class="table table-bordered">
+    <tr *ngIf="feedbackes.length > 0">
+        <th>feedback id</th>
+        <th>driverRating</th>
+        <th>serviceRating</th>
+        <th>overall Rating</th>
+        <th>comments</th>
+        <th>feedbackdate</th>
+    </tr>
+    <tr *ngFor="let feed of feedbackes">
+        <td>{{feed.feedBackId}}</td>
+        <td>{{feed.driverRating}}</td>
+        <td>{{feed.serviceRating}}</td>
+        <td>{{feed.overallRating}}</td>
+        <td>{{feed.comments}}</td>
+        <td>{{feed.feedbackdate}}</td>
+        <!-- <td><input type="button" (click)="deletefeedback(feed.feedBackId)" value="Delete" class="btn btn-primary"></td> -->
+        <td><input type="button" (click)="Updatefeedback(feed.feedBackId)"value="Update" class="btn btn-primary"></td>
+    </tr>
+   
+</table>
